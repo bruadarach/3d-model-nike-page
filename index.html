@@ -151,27 +151,27 @@
 
         renderer.outputEncoding = THREE.sRGBEncoding;
 
-        let camera = new THREE.PerspectiveCamera(10, 1.2);
+        let camera = new THREE.PerspectiveCamera(10, 1);
         camera.position.set(0,0,2);
 
         scene.background = new THREE.Color('white')
-  
+
         let light = new THREE.HemisphereLight(0xffeeb1, 0x080820, 4);
         scene.add(light);
 
         let loader = new GLTFLoader();
-        loader.load('sneaker/scene.gltf', function(gltf) {
+        loader.load('../sneaker/scene.gltf', function(gltf) {
             scene.add(gltf.scene);
 
             function animate() {
                 requestAnimationFrame(animate)
-                gltf.scene.rotation.y -= 0.1;
-                gltf.scene.rotation.x = 0.3;
-                //gltf.scene.rotation.z = -0.1;
+                gltf.scene.rotation.y -= 0.005;
+                gltf.scene.rotation.x = 0.5;
+                //gltf.scene.rotation.z = 0.1;
                 renderer.render(scene, camera);
             }
             animate()
         })
-    </script>
+    </script> 
     </body>
 </html>
